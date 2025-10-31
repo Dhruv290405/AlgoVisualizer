@@ -118,6 +118,8 @@ Before you begin, ensure you have the following installed:
 - **Node.js** (v14.0 or higher)
 - **npm** (v6.0 or higher) or **yarn**
 
+> Note for Windows users: this repository contains some files that differ only by filename case. On case-insensitive filesystems (default on Windows), those files may collide when cloned. If you see missing pages or filename conflicts, consider using WSL, a case-sensitive filesystem, or renaming the colliding files on a case-sensitive system before working on them.
+
 ### Installation
 
 1. **Clone the repository**
@@ -141,6 +143,18 @@ Before you begin, ensure you have the following installed:
    npm run dev
    # or
    yarn dev
+
+   ### Windows (PowerShell) — quick start
+
+   If you're on Windows using PowerShell, you can run these commands from the project root:
+
+   ```powershell
+   Set-Location -Path 'E:\Algovisulizer\AlgoVisualizer'
+   npm install
+   npm run dev
+   ```
+
+   This will launch the Vite dev server and print a local URL (usually http://localhost:5173).
    ```
 
 4. **Open your browser**
