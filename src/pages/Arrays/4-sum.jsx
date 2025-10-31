@@ -215,7 +215,7 @@ const CODE_SNIPPETS = {
   },
 };
 
-const FourSumVisualizer = () => {
+const FourSum = () => {
   const [numsInput, setNumsInput] = useState("1,0,-1,0,-2,2");
   const [targetInput, setTargetInput] = useState("0");
 
@@ -1040,4 +1040,4 @@ const FourSumVisualizer = () => {
   );
 };
 
-export default FourSumVisualizer;
+export default FourSum;
