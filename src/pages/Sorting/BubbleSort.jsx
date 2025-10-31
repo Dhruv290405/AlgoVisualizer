@@ -11,6 +11,10 @@ import {
 import VisualizerPointer from "../../components/VisualizerPointer";
 
 // Main Visualizer Component
+// NOTE (contributors):
+// - This component builds a `history` array of visualization states (objects).
+// - Controls (play/pause/step/reset) mutate `currentStep` to navigate the history.
+// - Keep changes non-functional and focused on documentation to avoid runtime regressions.
 const BubbleSortVisualizer = () => {
   const [history, setHistory] = useState([]);
   const [currentStep, setCurrentStep] = useState(-1);

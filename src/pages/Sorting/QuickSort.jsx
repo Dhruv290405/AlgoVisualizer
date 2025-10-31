@@ -11,6 +11,9 @@ import {
 import VisualizerPointer from "../../components/VisualizerPointer";
 
 // Main Visualizer Component
+// NOTE (contributors):
+// - This component generates a sequence of states in `history` used by the UI to render steps.
+// - When editing behavior, prefer small commits and run the dev server to verify no regressions.
 const QuickSortVisualizer = () => {
   const [history, setHistory] = useState([]);
   const [currentStep, setCurrentStep] = useState(-1);

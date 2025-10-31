@@ -9,6 +9,14 @@ import {
 } from "lucide-react";
 import VisualizerPointer from "../../components/VisualizerPointer";
 
+// SortingVisualizerLayout
+// Shared layout and controls used by individual sorting visualizers.
+// Contract (high level):
+// - Props: title, description, Icon, arrayInput, setArrayInput, isLoaded, loadArray, reset,
+//   stepBackward, stepForward, currentStep, history, arraySize, setArraySize, generateRandomArray,
+//   isPlaying, togglePlayPause, speed, setSpeed, pseudocode, visualization, complexityAnalysis
+// - This component is presentation-focused and should not contain algorithm logic.
+// - Keep behavior minimal so children (visualizers) can supply state/handlers.
 const SortingVisualizerLayout = ({
   // Props for algorithm-specific details
   title,
