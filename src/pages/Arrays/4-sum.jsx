@@ -655,7 +655,11 @@ const FourSum = () => {
     );
   };
 
-  const displayArray = mode === "optimal" && isLoaded ? sortedNums : nums;
+  // Ensure displayArray is always an array to avoid runtime errors in render
+  const displayArray = (() => {
+    const arr = mode === "optimal" && isLoaded ? sortedNums : nums;
+    return Array.isArray(arr) ? arr : [];
+  })();
 
   const getPointerIndices = () => {
     const pointers = [];
@@ -857,9 +861,9 @@ const FourSum = () => {
               </div>
             </div>
             <div className="bg-[#0b1020] rounded-lg border border-gray-700/80 max-h-[640px] overflow-auto p-3">
-              {CODE_SNIPPETS[mode][activeLang].map((line) =>
-                renderCodeLine(activeLang, line)
-              )}
+              {(CODE_SNIPPETS[mode] && CODE_SNIPPETS[mode][activeLang]
+                ? CODE_SNIPPETS[mode][activeLang]
+                : []).map((line) => renderCodeLine(activeLang, line))}
             </div>
             <div className="mt-4 text-xs text-gray-400 space-y-2">
               <div>Active line highlighted in green.</div>

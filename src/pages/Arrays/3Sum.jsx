@@ -75,7 +75,14 @@ const ThreeSum = ({ navigate }) => {
       }
 
       if (phase === "finding") {
-        const arr = sortedArray;
+        const arr = Array.isArray(sortedArray) ? sortedArray : [];
+
+        // Defensive: if array too small or pointers invalid, stop playback
+        if (arr.length < 3) {
+          setIsPlaying(false);
+          setCurrentStep("Array too small for 3Sum");
+          return;
+        }
 
         if (i >= arr.length - 2) {
           setIsPlaying(false);
@@ -102,6 +109,20 @@ const ThreeSum = ({ navigate }) => {
           setI(i + 1);
           setLeft(i + 2);
           setRight(arr.length - 1);
+          return;
+        }
+
+        // Defensive pointer checks before accessing array
+        if (
+          i < 0 ||
+          left < 0 ||
+          right < 0 ||
+          i >= arr.length ||
+          left >= arr.length ||
+          right >= arr.length
+        ) {
+          setIsPlaying(false);
+          setCurrentStep("Pointer out of range");
           return;
         }
 
